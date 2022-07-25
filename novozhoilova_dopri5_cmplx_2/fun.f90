@@ -502,11 +502,11 @@ contains
     function dfdtcmplx(fcmplx) result(s)
         implicit none
 
-        complex(c_double_complex) fcmplx(neqf/2), s(neqf/2), x1, x2
+        complex(c_double_complex) fcmplx(neqf/2), s(neqf/2), x1, x2, iic
 
         x1 = xi(p(1:2*ne, :), 1)
-        x2 = xi(p(2*ne + 1:4*ne, :), 1)
-
+        x2 = xi(p(2*ne + 1:4*ne, :), 1)         
+    
         s(1) = (ic*i1*x1 - ng*fcmplx(1))*q31 + 2*r1*q31*ng*cdexp(-ic*th1)*fcmplx(3) - ic*dcir1*2*q3*fcmplx(1)
         s(2) = (ic*i2*x2 - ng*fcmplx(2))*q32 + 2*r2*q32*ng*cdexp(-ic*th2)*fcmplx(3) - ic*dcir2*2*q3*fcmplx(2)
         s(3) = -fcmplx(3) + a1*fcmplx(1) + a2*fcmplx(2)
