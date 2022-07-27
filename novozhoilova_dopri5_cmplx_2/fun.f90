@@ -130,7 +130,7 @@ contains
 
         real(c_double) q1, q2, q3, i1, i2, th1, th2, a1, a2, dtr1, dtr2, dcir1, dcir2, r1, r2, tol
 
-        open (unit=1, file='input_fortran.dat', status='old', err=101)
+        open (unit=1, file='input_fortran.in', status='old', err=101)
         read (unit=1, nml=param, err=102)
         close (unit=1)
 
@@ -154,7 +154,7 @@ contains
 
         return
 101     print *, "error of file open"; pause; stop
-102     print *, 'error of reading file "input_fortran.dat"'; pause; stop
+102     print *, 'error of reading file "input_fortran.in"'; pause; stop
     end subroutine read_param
 
     subroutine ode4f()
