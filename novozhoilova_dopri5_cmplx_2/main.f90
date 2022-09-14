@@ -53,11 +53,11 @@ program sys15f
     end do
 
     breaknum(:) = 0
-    phitmp0(:) = datan2(dimag(fcmplx(:, 1)), dreal(fcmplx(:, 1)))
+    phitmp0(:) = atan(dimag(fcmplx(:, 1)), dreal(fcmplx(:, 1)))
     phios(:, 1) = phitmp0(:)
     do i = 2, nt
         do j = 1, 3
-            phitmp1(j) = datan2(dimag(fcmplx(j, i)), dreal(fcmplx(j, i)))
+            phitmp1(j) = atan(dimag(fcmplx(j, i)), dreal(fcmplx(j, i)))
             if ((phitmp1(j) - phitmp0(j)) .gt. pi) breaknum(j) = breaknum(j) - 1
             if ((phitmp1(j) - phitmp0(j)) .lt. -pi) breaknum(j) = breaknum(j) + 1
             phios(j, i) = phitmp1(j) + 2.*pi*breaknum(j)
